@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "masturbations",
+  "info": {
+    "singularName": "masturbation",
+    "pluralName": "masturbations",
+    "displayName": "Masturbation"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Who": {
+      "type": "enumeration",
+      "enum": [
+        "A",
+        "D"
+      ],
+      "required": true
+    },
+    "N_Orgasm": {
+      "type": "integer",
+      "required": true
+    },
+    "Toys": {
+      "type": "boolean",
+      "required": true
+    },
+    "Date": {
+      "type": "date"
+    }
+  }
+}

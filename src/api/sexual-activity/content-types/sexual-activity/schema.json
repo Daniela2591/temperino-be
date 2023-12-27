@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sexual_activities",
+  "info": {
+    "singularName": "sexual-activity",
+    "pluralName": "sexual-activities",
+    "displayName": "Sexual Activity",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Sex": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Blowjob": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Handjob": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Anal": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Fingering": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Lick": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Orgasm_D": {
+      "type": "integer",
+      "required": true
+    },
+    "Orgasm_A": {
+      "type": "integer",
+      "required": true
+    },
+    "Date": {
+      "type": "date",
+      "required": true
+    }
+  }
+}
