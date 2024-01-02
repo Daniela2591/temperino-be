@@ -12,46 +12,59 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Sex": {
+    "sex": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "Blowjob": {
+    "blowjob": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "Handjob": {
+    "handjob": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "Anal": {
+    "anal": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "Fingering": {
+    "fingering": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "Lick": {
+    "lick": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "Orgasm_D": {
+    "orgasm_d": {
       "type": "integer",
       "required": true
     },
-    "Orgasm_A": {
+    "orgasm_a": {
       "type": "integer",
       "required": true
     },
-    "Date": {
+    "date": {
       "type": "date",
+      "required": true
+    },
+    "cumshot": {
+      "type": "enumeration",
+      "enum": [
+        "mouth",
+        "face",
+        "tits",
+        "belly",
+        "pussy",
+        "ass",
+        "butts"
+      ],
       "required": true
     }
   }

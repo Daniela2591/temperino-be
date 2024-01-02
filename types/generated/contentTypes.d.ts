@@ -362,6 +362,87 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiMasturbationMasturbation extends Schema.CollectionType {
+  collectionName: 'masturbations';
+  info: {
+    singularName: 'masturbation';
+    pluralName: 'masturbations';
+    displayName: 'Masturbation';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    who: Attribute.Enumeration<['A', 'D']> & Attribute.Required;
+    n_orgasms: Attribute.Integer & Attribute.Required;
+    toys: Attribute.Boolean & Attribute.Required;
+    date: Attribute.Date;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::masturbation.masturbation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::masturbation.masturbation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSexualActivitySexualActivity extends Schema.CollectionType {
+  collectionName: 'sexual_activities';
+  info: {
+    singularName: 'sexual-activity';
+    pluralName: 'sexual-activities';
+    displayName: 'Sexual Activity';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    sex: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
+    blowjob: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    handjob: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    anal: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
+    fingering: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    lick: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
+    orgasm_d: Attribute.Integer & Attribute.Required;
+    orgasm_a: Attribute.Integer & Attribute.Required;
+    date: Attribute.Date & Attribute.Required;
+    cumshot: Attribute.Enumeration<
+      ['mouth', 'face', 'tits', 'belly', 'pussy', 'ass', 'butts']
+    > &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sexual-activity.sexual-activity',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sexual-activity.sexual-activity',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -768,82 +849,6 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiMasturbationMasturbation extends Schema.CollectionType {
-  collectionName: 'masturbations';
-  info: {
-    singularName: 'masturbation';
-    pluralName: 'masturbations';
-    displayName: 'Masturbation';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    Who: Attribute.Enumeration<['A', 'D']> & Attribute.Required;
-    N_Orgasm: Attribute.Integer & Attribute.Required;
-    Toys: Attribute.Boolean & Attribute.Required;
-    Date: Attribute.Date;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::masturbation.masturbation',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::masturbation.masturbation',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiSexualActivitySexualActivity extends Schema.CollectionType {
-  collectionName: 'sexual_activities';
-  info: {
-    singularName: 'sexual-activity';
-    pluralName: 'sexual-activities';
-    displayName: 'Sexual Activity';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    Sex: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
-    Blowjob: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    Handjob: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    Anal: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
-    Fingering: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    Lick: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
-    Orgasm_D: Attribute.Integer & Attribute.Required;
-    Orgasm_A: Attribute.Integer & Attribute.Required;
-    Date: Attribute.Date & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::sexual-activity.sexual-activity',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::sexual-activity.sexual-activity',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -854,6 +859,8 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::masturbation.masturbation': ApiMasturbationMasturbation;
+      'api::sexual-activity.sexual-activity': ApiSexualActivitySexualActivity;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -862,8 +869,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
-      'api::masturbation.masturbation': ApiMasturbationMasturbation;
-      'api::sexual-activity.sexual-activity': ApiSexualActivitySexualActivity;
     }
   }
 }

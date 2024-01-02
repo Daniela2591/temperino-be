@@ -4,14 +4,15 @@
   "info": {
     "singularName": "masturbation",
     "pluralName": "masturbations",
-    "displayName": "Masturbation"
+    "displayName": "Masturbation",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "Who": {
+    "who": {
       "type": "enumeration",
       "enum": [
         "A",
@@ -19,15 +20,15 @@
       ],
       "required": true
     },
-    "N_Orgasm": {
+    "n_orgasms": {
       "type": "integer",
       "required": true
     },
-    "Toys": {
+    "toys": {
       "type": "boolean",
       "required": true
     },
-    "Date": {
+    "date": {
       "type": "date"
     }
   }
