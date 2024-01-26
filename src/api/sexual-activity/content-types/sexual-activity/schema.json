@@ -42,6 +42,11 @@
       "default": false,
       "required": true
     },
+    "tits_fuck": {
+        "type": "boolean",
+        "default": false,
+        "required": true
+    },
     "orgasm_d": {
       "type": "integer",
       "required": true
